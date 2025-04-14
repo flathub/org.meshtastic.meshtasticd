@@ -53,7 +53,9 @@ modules:
       - install -m644 bin/config-dist.yaml /app/share/meshtasticd/config-dist.yaml
       # Install the default maps
       - install -d /app/share/meshtasticd/maps
-      - for file in pio/libdeps/native-tft/meshtastic-device-ui/maps/*.zip; do bsdtar -xf "$file" --no-same-owner --strip-components=1 -C /app/share/meshtasticd/maps; done
+      - for file in pio/libdeps/native-tft/meshtastic-device-ui/maps/*.zip; do bsdtar
+        -xf "$file" --no-same-owner --strip-components=1 -C /app/share/meshtasticd/maps;
+        done
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
@@ -112,8 +114,8 @@ modules:
         buildsystem: autotools
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.tar.gz
-            sha256: ae35329db7027c740e90c883baf27c26311f0614e6a7b115771b28188b992aec
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.1.tar.gz
+            sha256: 4857d0257c40b44518ae7c4d84f1b023fd2be98e23ef9fb795af4d65b7e1607f
             x-checker-data:
               type: anitya
               project-id: 20640
@@ -155,8 +157,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz
-            sha256: abf1aace86208eebdd5d3550ffded4c8d73bb405b796d51c389c9d0604cbcfbf
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
+            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -175,8 +177,8 @@ modules:
           - -Dzshcompletiondir=no
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.27.0/libinput-1.27.0.tar.gz
-            sha256: b11b900bf88ef68fe688c107226bb453ef26faf461ae2dcf9690b00009d660a6
+            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.28.1/libinput-1.28.1.tar.gz
+            sha256: a13f8c9a7d93df3c85c66afd135f0296701d8d32f911991b7aa4273fdd6a42a3
             x-checker-data:
               type: anitya
               project-id: 5781
@@ -224,8 +226,8 @@ modules:
           - /libexec
         sources:
           - type: archive
-            url: https://xkbcommon.org/download/libxkbcommon-1.6.0.tar.xz
-            sha256: 0edc14eccdd391514458bc5f5a4b99863ed2d651e4dd761a90abf4f46ef99c2b
+            url: https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz
+            sha256: 65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247
             x-checker-data:
               type: anitya
               project-id: 1780
