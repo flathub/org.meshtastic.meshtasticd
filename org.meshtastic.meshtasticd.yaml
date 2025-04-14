@@ -59,6 +59,13 @@ modules:
         url: https://github.com/meshtastic/firmware.git
         tag: v2.6.4.b89355f
         commit: b89355ffa60b3893417004b07e7b96f04b17022c
+        x-checker-data:
+          is-main-source: true
+          type: json
+          url: https://api.github.com/repos/meshtastic/firmware/releases/latest
+          timestamp-query: .published_at
+          tag-query: .tag_name
+          version-query: $tag | sub("^v"; "")
       - type: patch
         paths:
           - patches/stdcppfs.patch
@@ -67,6 +74,14 @@ modules:
         sha256: de27192190e22b1d6af511c56c19a53b1fcadcff84db5ea63093c607c90c5f32
         strip-components: 1
         dest: pio
+        x-checker-data:
+          is-main-source: true
+          type: json
+          url: https://api.github.com/repos/meshtastic/firmware/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name | sub("^v"; "")
+          url-query: |-
+            .assets[] | select(.name=="platformio-deps-native-tft-" + $version + ".zip") | .browser_download_url
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -88,12 +103,22 @@ modules:
           - type: archive
             url: https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz
             sha256: fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16
+            x-checker-data:
+              type: anitya
+              project-id: 5284
+              stable-only: true
+              url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/$version.tar.gz
       - name: libgpiod
         buildsystem: autotools
         sources:
           - type: archive
             url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.tar.gz
             sha256: ae35329db7027c740e90c883baf27c26311f0614e6a7b115771b28188b992aec
+            x-checker-data:
+              type: anitya
+              project-id: 20640
+              stable-only: true
+              url-template: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-$version.tar.gz
       - name: i2c-tools
         buildsystem: simple
         build-commands:
@@ -102,6 +127,11 @@ modules:
           - type: archive
             url: https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git/snapshot/i2c-tools-4.4.tar.gz
             sha256: af01d0fbe78e109a2db7137c7e9bfda3f3fb236c3177744c0f2695d1056cde71
+            x-checker-data:
+              type: anitya
+              project-id: 9272
+              stable-only: true
+              url-template: https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git/snapshot/i2c-tools-$version.tar.gz
       - name: libuv
         buildsystem: cmake-ninja
         config-opts:
@@ -196,3 +226,8 @@ modules:
           - type: archive
             url: https://xkbcommon.org/download/libxkbcommon-1.6.0.tar.xz
             sha256: 0edc14eccdd391514458bc5f5a4b99863ed2d651e4dd761a90abf4f46ef99c2b
+            x-checker-data:
+              type: anitya
+              project-id: 1780
+              stable-only: true
+              url-template: https://xkbcommon.org/download/libxkbcommon-$version.tar.xz
