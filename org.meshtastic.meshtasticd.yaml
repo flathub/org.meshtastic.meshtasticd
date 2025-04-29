@@ -63,10 +63,11 @@ modules:
         commit: b89355ffa60b3893417004b07e7b96f04b17022c
         x-checker-data:
           is-main-source: true
-          type: anitya
-          project-id: 376840
-          stable-only: false
-          tag-template: v${version}
+          type: json
+          url: https://api.github.com/repos/meshtastic/firmware/releases/latest
+          timestamp-query: .published_at
+          tag-query: .tag_name
+          version-query: $tag | sub("^v"; "")
       - type: patch
         paths:
           - patches/stdcppfs.patch
@@ -77,10 +78,12 @@ modules:
         dest: pio
         x-checker-data:
           is-main-source: true
-          type: anitya
-          project-id: 376840
-          stable-only: false
-          url-template: https://github.com/meshtastic/firmware/releases/download/v$version/platformio-deps-native-tft-$version.zip
+          type: json
+          url: https://api.github.com/repos/meshtastic/firmware/releases/latest
+          timestamp-query: .published_at
+          version-query: .tag_name | sub("^v"; "")
+          url-query: |-
+            .assets[] | select(.name=="platformio-deps-native-tft-" + $version + ".zip") | .browser_download_url
     cleanup:
       - /include
       - /lib/pkgconfig
