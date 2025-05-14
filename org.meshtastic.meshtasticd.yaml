@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.6.5.fc3d9f2
-        commit: fc3d9f2a15e201bbedc3a98049abdc8b3bd648da
+        tag: v2.6.4.b89355f
+        commit: b89355ffa60b3893417004b07e7b96f04b17022c
         x-checker-data:
           is-main-source: true
           type: json
@@ -72,8 +72,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.6.5.fc3d9f2/platformio-deps-native-tft-2.6.5.fc3d9f2.zip
-        sha256: 4dc9f8701b7a0f8f5f94076f017e0316bb87ec10145bfb88da77e9d66101d1b2
+        url: https://github.com/meshtastic/firmware/releases/download/v2.6.4.b89355f/platformio-deps-native-tft-2.6.4.b89355f.zip
+        sha256: de27192190e22b1d6af511c56c19a53b1fcadcff84db5ea63093c607c90c5f32
         strip-components: 1
         dest: pio
         x-checker-data:
