@@ -20,18 +20,9 @@ modules:
     buildsystem: simple
     build-commands:
       - install -Dm755 meshtasticd-wrapper.sh /app/bin/meshtasticd-wrapper.sh
-      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps/ org.meshtastic.meshtasticd.svg
-      - install -Dm644 -t /app/share/applications org.meshtastic.meshtasticd.desktop
-      - install -Dm644 -t /app/share/metainfo org.meshtastic.meshtasticd.metainfo.xml
     sources:
       - type: file
         path: meshtasticd-wrapper.sh
-      - type: file
-        path: org.meshtastic.meshtasticd.desktop
-      - type: file
-        path: org.meshtastic.meshtasticd.svg
-      - type: file
-        path: org.meshtastic.meshtasticd.metainfo.xml
   - name: meshtasticd
     buildsystem: simple
     build-options:
@@ -43,6 +34,12 @@ modules:
         PLATFORMIO_PACKAGES_DIR: pio/packages
         PLATFORMIO_CORE_DIR: pio/core
     build-commands:
+      # Install desktop metadata
+      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps bin/org.meshtastic.meshtasticd.svg
+      - install -Dm644 -t /app/share/applications bin/org.meshtastic.meshtasticd.desktop
+      - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U" /app/share/applications/org.meshtastic.meshtasticd.desktop
+      - install -Dm644 -t /app/share/metainfo bin/org.meshtastic.meshtasticd.metainfo.xml
+      # Build meshtasticd
       - platformio run -e native-tft
       - install -Dm755 .pio/build/native-tft/program /app/bin/meshtasticd
       # Install the default config files and directories
@@ -59,8 +56,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.6.5.fc3d9f2
-        commit: fc3d9f2a15e201bbedc3a98049abdc8b3bd648da
+        tag: v2.6.7.2d6181f
+        commit: 2d6181fca0efabacb56ccc5a01f35df0ccc3cdbd
         x-checker-data:
           is-main-source: true
           type: json
@@ -72,8 +69,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.6.5.fc3d9f2/platformio-deps-native-tft-2.6.5.fc3d9f2.zip
-        sha256: 4dc9f8701b7a0f8f5f94076f017e0316bb87ec10145bfb88da77e9d66101d1b2
+        url: https://github.com/meshtastic/firmware/releases/download/v2.6.7.2d6181f/platformio-deps-native-tft-2.6.7.2d6181f.zip
+        sha256: 45ffe8c1d54ef12c817c25117484914108acb23875e7f1dfd62ee42fbe2aa221
         strip-components: 1
         dest: pio
         x-checker-data:
