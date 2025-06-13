@@ -37,7 +37,8 @@ modules:
       # Install desktop metadata
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps bin/org.meshtastic.meshtasticd.svg
       - install -Dm644 -t /app/share/applications bin/org.meshtastic.meshtasticd.desktop
-      - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U" /app/share/applications/org.meshtastic.meshtasticd.desktop
+      - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U"
+        /app/share/applications/org.meshtastic.meshtasticd.desktop
       - install -Dm644 -t /app/share/metainfo bin/org.meshtastic.meshtasticd.metainfo.xml
       # Build meshtasticd
       - platformio run -e native-tft
@@ -56,8 +57,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.6.7.2d6181f
-        commit: 2d6181fca0efabacb56ccc5a01f35df0ccc3cdbd
+        tag: v2.6.10.9ce4455
+        commit: 9ce44556ceaabaf1c6cd689d6390651dcc29d3de
         x-checker-data:
           is-main-source: true
           type: json
@@ -69,8 +70,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.6.7.2d6181f/platformio-deps-native-tft-2.6.7.2d6181f.zip
-        sha256: 45ffe8c1d54ef12c817c25117484914108acb23875e7f1dfd62ee42fbe2aa221
+        url: https://github.com/meshtastic/firmware/releases/download/v2.6.10.9ce4455/platformio-deps-native-tft-2.6.10.9ce4455.zip
+        sha256: 25122affed706d2760c957c5661a2b939112f336b4769342b151455a548789e7
         strip-components: 1
         dest: pio
         x-checker-data:
