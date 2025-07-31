@@ -112,8 +112,8 @@ modules:
         buildsystem: autotools
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.1.tar.gz
-            sha256: 4857d0257c40b44518ae7c4d84f1b023fd2be98e23ef9fb795af4d65b7e1607f
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.2.tar.gz
+            sha256: d0b1380c3cbabbb49b82f709b3288376d98347d4436613407d19cc4cbbfc45a6
             x-checker-data:
               type: anitya
               project-id: 20640
@@ -175,8 +175,8 @@ modules:
           - -Dzshcompletiondir=no
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.28.1/libinput-1.28.1.tar.gz
-            sha256: a13f8c9a7d93df3c85c66afd135f0296701d8d32f911991b7aa4273fdd6a42a3
+            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.0/libinput-1.29.0.tar.gz
+            sha256: ec71f6ec6632108a62756f49d86e864494108e70cf670e85f8b7579e970e152c
             x-checker-data:
               type: anitya
               project-id: 5781
