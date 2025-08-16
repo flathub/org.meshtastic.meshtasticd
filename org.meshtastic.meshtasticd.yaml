@@ -1,6 +1,6 @@
 id: org.meshtastic.meshtasticd
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: meshtasticd-wrapper.sh
 
@@ -90,7 +90,6 @@ modules:
       - /share/man
     modules:
       - python3-requirements.json
-      - shared-modules/libusb/libusb.json
       - name: yaml-cpp
         buildsystem: cmake-ninja
         config-opts:
