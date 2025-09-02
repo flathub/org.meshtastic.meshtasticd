@@ -89,7 +89,7 @@ modules:
       - /lib/*.a
       - /share/man
     modules:
-      - python3-requirements.json
+      - python3-requirements.yaml
       - shared-modules/libusb/libusb.json
       - name: yaml-cpp
         buildsystem: cmake-ninja
