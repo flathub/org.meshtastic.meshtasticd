@@ -1,6 +1,6 @@
 id: org.meshtastic.meshtasticd
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: meshtasticd-wrapper.sh
 
@@ -90,7 +90,6 @@ modules:
       - /share/man
     modules:
       - python3-requirements.yaml
-      - shared-modules/libusb/libusb.json
       - name: yaml-cpp
         buildsystem: cmake-ninja
         config-opts:
@@ -101,13 +100,15 @@ modules:
           - -DYAML_CPP_BUILD_CONTRIB=OFF
         sources:
           - type: archive
-            url: https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz
-            sha256: fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16
-            x-checker-data:
-              type: anitya
-              project-id: 5284
-              stable-only: true
-              url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/$version.tar.gz
+            # Include unreleased CMake fixes
+            # Revisit when >0.8.0 has been released
+            url: https://github.com/jbeder/yaml-cpp/archive/2f86d13775d119edbb69af52e5f566fd65c6953b.zip
+            sha256: a0fe4a51bdc90bf6070e59434a4bcd59a7e55def747c8749ac0103d152bb8072
+            # x-checker-data:
+            #   type: anitya
+            #   project-id: 5284
+            #   stable-only: true
+            #   url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/$version.tar.gz
       - name: libgpiod
         buildsystem: autotools
         sources:
