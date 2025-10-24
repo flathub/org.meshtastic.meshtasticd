@@ -156,8 +156,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
-            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.5.tar.xz
+            sha256: 89918ae7b7c13936e6482604a77a2bfbbb74544c5d039fde01c3fa1bdf639987
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -176,8 +176,8 @@ modules:
           - -Dzshcompletiondir=no
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.1/libinput-1.29.1.tar.gz
-            sha256: 98bb615d98ddc4607bddb13a7b7550d129eb8cd16f86cd5ca090207bc46b488b
+            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.2/libinput-1.29.2.tar.gz
+            sha256: 02631a861fc6b9fb9ca6ae51cf863334e0699bf60c91c389ac420f3fa0053bdc
             x-checker-data:
               type: anitya
               project-id: 5781
