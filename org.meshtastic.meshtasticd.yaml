@@ -120,8 +120,8 @@ modules:
         buildsystem: autotools
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.2.tar.gz
-            sha256: d0b1380c3cbabbb49b82f709b3288376d98347d4436613407d19cc4cbbfc45a6
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.3.tar.gz
+            sha256: a748aac65c589f4f465763704b07a7bf3b598d3a810659275956b461bf795b7a
             x-checker-data:
               type: anitya
               project-id: 20640
@@ -147,13 +147,13 @@ modules:
         sources:
           - type: git
             url: https://github.com/libuv/libuv/
-            tag: v1.51.0
+            tag: v1.52.0
+            commit: b556c0629d0fd250b5feefbc91b84c6f5e3dae48
             x-checker-data:
               type: anitya
               project-id: 10784
               stable-only: true
               tag-template: v${version}
-            commit: 5152db2cbfeb5582e9c27c5ea1dba2cd9e10759b
         cleanup:
           - /bin
       - name: libevdev
@@ -183,8 +183,8 @@ modules:
           - -Dzshcompletiondir=no
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.30.0/libinput-1.30.0.tar.gz
-            sha256: fcce701746b8f5ee57c6724e963496d2223a9639856c6d1b811cff38e6dd4465
+            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz
+            sha256: 5f95a8ce039b3b2b4560a60bbdb920518d41baa9419344e5878c94bd841d5a54
             x-checker-data:
               type: anitya
               project-id: 5781
