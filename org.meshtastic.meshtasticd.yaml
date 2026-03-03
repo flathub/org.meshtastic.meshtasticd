@@ -33,6 +33,10 @@ modules:
         PLATFORMIO_LIBDEPS_DIR: pio/libdeps
         PLATFORMIO_PACKAGES_DIR: pio/packages
         PLATFORMIO_CORE_DIR: pio/core
+        # Prevent PlatformIO from connecting to the internet during the build
+        PLATFORMIO_SETTING_ENABLE_TELEMETRY: "0"
+        PLATFORMIO_SETTING_CHECK_PLATFORMIO_INTERVAL: "3650"
+        PLATFORMIO_SETTING_CHECK_PRUNE_SYSTEM_THRESHOLD: "10240"
     build-commands:
       # Install desktop metadata
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps bin/org.meshtastic.meshtasticd.svg
@@ -40,8 +44,11 @@ modules:
       - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U"
         /app/share/applications/org.meshtastic.meshtasticd.desktop
       - install -Dm644 -t /app/share/metainfo bin/org.meshtastic.meshtasticd.metainfo.xml
+      # Set platformio cache to always expire in the future (append '1' to timestamps)
+      - |
+        sed -Ei 's/: ([0-9]+)([,}])/: \11\2/g' pio/core/.cache/downloads/usage.db
       # Build meshtasticd
-      - platformio run -e native-tft
+      - platformio run -e native-tft --disable-auto-clean
       - install -Dm755 .pio/build/native-tft/program /app/bin/meshtasticd
       # Install the default config files and directories
       - install -d /app/share/meshtasticd
