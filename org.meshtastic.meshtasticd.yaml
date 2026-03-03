@@ -44,11 +44,17 @@ modules:
       - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U"
         /app/share/applications/org.meshtastic.meshtasticd.desktop
       - install -Dm644 -t /app/share/metainfo bin/org.meshtastic.meshtasticd.metainfo.xml
-      # Set platformio cache to always expire in the future (append '1' to timestamps)
+      # Rewrite platformio-deps cache to always expire in the future (append '1' to timestamps)
       - >
         tj=$(mktemp) &&
         jq -c 'with_entries(.value |= (. | tostring + "1" | tonumber))' pio/core/.cache/downloads/usage.db > "$tj" &&
         mv "$tj" pio/core/.cache/downloads/usage.db
+      # Rewrite platformio-deps appstate version to match the current version
+      - >
+        tp=$(mktemp) && pio_version=$(platformio --version | awk '{print $NF}') &&
+        jq -c --arg v "$pio_version" '.last_version = $v' pio/core/appstate.json > "$tp" &&
+        mv "$tp" pio/core/appstate.json &&
+        echo "Set PlatformIO version to $pio_version in pio/core/appstate.json"
       # Build meshtasticd
       - platformio run -e native-tft --disable-auto-clean
       - install -Dm755 .pio/build/native-tft/program /app/bin/meshtasticd
