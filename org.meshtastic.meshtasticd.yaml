@@ -34,9 +34,9 @@ modules:
         PLATFORMIO_PACKAGES_DIR: pio/packages
         PLATFORMIO_CORE_DIR: pio/core
         # Prevent PlatformIO from connecting to the internet during the build
-        PLATFORMIO_SETTING_ENABLE_TELEMETRY: "0"
-        PLATFORMIO_SETTING_CHECK_PLATFORMIO_INTERVAL: "3650"
-        PLATFORMIO_SETTING_CHECK_PRUNE_SYSTEM_THRESHOLD: "10240"
+        PLATFORMIO_SETTING_ENABLE_TELEMETRY: '0'
+        PLATFORMIO_SETTING_CHECK_PLATFORMIO_INTERVAL: '3650'
+        PLATFORMIO_SETTING_CHECK_PRUNE_SYSTEM_THRESHOLD: '10240'
     build-commands:
       # Install desktop metadata
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps bin/org.meshtastic.meshtasticd.svg
@@ -107,15 +107,13 @@ modules:
           - -DYAML_CPP_BUILD_CONTRIB=OFF
         sources:
           - type: archive
-            # Include unreleased CMake fixes
-            # Revisit when >0.8.0 has been released
-            url: https://github.com/jbeder/yaml-cpp/archive/2f86d13775d119edbb69af52e5f566fd65c6953b.zip
-            sha256: a0fe4a51bdc90bf6070e59434a4bcd59a7e55def747c8749ac0103d152bb8072
-            # x-checker-data:
-            #   type: anitya
-            #   project-id: 5284
-            #   stable-only: true
-            #   url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/$version.tar.gz
+            url: https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.9.0.tar.gz
+            sha256: 25cb043240f828a8c51beb830569634bc7ac603978e0f69d6b63558dadefd49a
+            x-checker-data:
+              type: anitya
+              project-id: 5284
+              stable-only: true
+              url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-$version.tar.gz
       - name: libgpiod
         buildsystem: autotools
         sources:
