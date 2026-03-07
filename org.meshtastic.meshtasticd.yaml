@@ -47,7 +47,8 @@ modules:
       # Set platformio cache to always expire in the future (append '1' to timestamps)
       - >
         tj=$(mktemp) &&
-        jq -c 'with_entries(.value |= (. | tostring + "1" | tonumber))' pio/core/.cache/downloads/usage.db > "$tj" &&
+        jq -c 'with_entries(.value |= (. | tostring + "1" | tonumber))' pio/core/.cache/downloads/usage.db
+        > "$tj" &&
         mv "$tj" pio/core/.cache/downloads/usage.db
       # Build meshtasticd
       - platformio run -e native-tft --disable-auto-clean
@@ -66,8 +67,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.16.a597230
-        commit: a59723030a7e15ab53b6fd1cb264ba2eebd4ed46
+        tag: v2.7.15.567b8ea
+        commit: d18f3f7a658817b35a3ab746d8522c1136890785
         x-checker-data:
           is-main-source: true
           type: json
@@ -79,8 +80,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.7.16.a597230/platformio-deps-native-tft-2.7.16.a597230.zip
-        sha256: c5bd2306b82623187f688c33a1a1912b5120d0f3f5a3ba05851ef1069a551ee4
+        url: https://github.com/meshtastic/firmware/releases/download/v2.7.15.567b8ea/platformio-deps-native-tft-2.7.15.567b8ea.zip
+        sha256: fd3627f7d2e8efbe1e97056b94df1df72caad5b8983e059667d04a55147ae903
         strip-components: 1
         dest: pio
         x-checker-data:
@@ -147,8 +148,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libuv/libuv/
-            tag: v1.52.0
-            commit: b556c0629d0fd250b5feefbc91b84c6f5e3dae48
+            tag: v1.52.1
+            commit: 1cfa32ff59c076ffb6ed735bbc8c18361558661f
             x-checker-data:
               type: anitya
               project-id: 10784
