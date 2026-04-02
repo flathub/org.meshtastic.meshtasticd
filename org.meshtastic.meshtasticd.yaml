@@ -66,8 +66,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.16.a597230
-        commit: a59723030a7e15ab53b6fd1cb264ba2eebd4ed46
+        tag: v2.7.15.567b8ea
+        commit: d18f3f7a658817b35a3ab746d8522c1136890785
         x-checker-data:
           is-main-source: true
           type: json
@@ -79,8 +79,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.7.16.a597230/platformio-deps-native-tft-2.7.16.a597230.zip
-        sha256: c5bd2306b82623187f688c33a1a1912b5120d0f3f5a3ba05851ef1069a551ee4
+        url: https://github.com/meshtastic/firmware/releases/download/v2.7.15.567b8ea/platformio-deps-native-tft-2.7.15.567b8ea.zip
+        sha256: fd3627f7d2e8efbe1e97056b94df1df72caad5b8983e059667d04a55147ae903
         strip-components: 1
         dest: pio
         x-checker-data:
@@ -183,8 +183,8 @@ modules:
           - -Dzshcompletiondir=no
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz
-            sha256: 5f95a8ce039b3b2b4560a60bbdb920518d41baa9419344e5878c94bd841d5a54
+            url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.1/libinput-1.31.1.tar.gz
+            sha256: e010b02021b8fe9f3e696a4a2059c0243f0c90f2f9d4bcf4c88d2f9613c52b0b
             x-checker-data:
               type: anitya
               project-id: 5781
