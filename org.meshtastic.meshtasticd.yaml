@@ -51,7 +51,7 @@ modules:
         > "$tj" && mv "$tj" pio/core/.cache/downloads/usage.db
       # Build meshtasticd
       - platformio run -e native-tft --disable-auto-clean
-      - install -Dm755 .pio/build/native-tft/program /app/bin/meshtasticd
+      - install -Dm755 .pio/build/native-tft/meshtasticd /app/bin/meshtasticd
       # Install the default config files and directories
       - install -d /app/share/meshtasticd
       - install -d /app/share/meshtasticd/config.d
@@ -66,8 +66,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.16.a597230
-        commit: a59723030a7e15ab53b6fd1cb264ba2eebd4ed46
+        tag: v2.7.20.6658ec2
+        commit: 016e68ec53fca8a9074fa8abf20210e379a0db6b
         x-checker-data:
           is-main-source: true
           type: json
@@ -79,8 +79,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.7.16.a597230/platformio-deps-native-tft-2.7.16.a597230.zip
-        sha256: c5bd2306b82623187f688c33a1a1912b5120d0f3f5a3ba05851ef1069a551ee4
+        url: https://github.com/meshtastic/firmware/releases/download/v2.7.20.6658ec2/platformio-deps-native-tft-2.7.20.6658ec2.zip
+        sha256: 32cd08cc9df5194bbc972929167e576b97a7729f04c1610b6aab8cf172e045ed
         strip-components: 1
         dest: pio
         x-checker-data:
