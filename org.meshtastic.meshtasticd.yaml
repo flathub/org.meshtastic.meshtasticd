@@ -66,8 +66,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.16.a597230
-        commit: a59723030a7e15ab53b6fd1cb264ba2eebd4ed46
+        tag: v2.7.15.567b8ea
+        commit: d18f3f7a658817b35a3ab746d8522c1136890785
         x-checker-data:
           is-main-source: true
           type: json
