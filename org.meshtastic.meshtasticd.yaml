@@ -44,14 +44,9 @@ modules:
       - desktop-file-edit --set-key="Exec" --set-value="meshtasticd-wrapper.sh %U"
         /app/share/applications/org.meshtastic.meshtasticd.desktop
       - install -Dm644 -t /app/share/metainfo bin/org.meshtastic.meshtasticd.metainfo.xml
-      # Set platformio cache to always expire in the future (append '1' to timestamps)
-      - >
-        tj=$(mktemp) &&
-        jq -c 'with_entries(.value |= (. | tostring + "1" | tonumber))' pio/core/.cache/downloads/usage.db
-        > "$tj" && mv "$tj" pio/core/.cache/downloads/usage.db
       # Build meshtasticd
       - platformio run -e native-tft --disable-auto-clean
-      - install -Dm755 .pio/build/native-tft/program /app/bin/meshtasticd
+      - install -Dm755 .pio/build/native-tft/meshtasticd /app/bin/meshtasticd
       # Install the default config files and directories
       - install -d /app/share/meshtasticd
       - install -d /app/share/meshtasticd/config.d
@@ -66,8 +61,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.16.a597230
-        commit: a59723030a7e15ab53b6fd1cb264ba2eebd4ed46
+        tag: v2.7.23.b246bcd
+        commit: b246bcd72ec6989b803da0d83d217b045303d3c6
         x-checker-data:
           is-main-source: true
           type: json
@@ -79,8 +74,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.7.16.a597230/platformio-deps-native-tft-2.7.16.a597230.zip
-        sha256: c5bd2306b82623187f688c33a1a1912b5120d0f3f5a3ba05851ef1069a551ee4
+        url: https://github.com/meshtastic/firmware/releases/download/v2.7.23.b246bcd/platformio-deps-native-tft-2.7.23.b246bcd.zip
+        sha256: 66c46e5839fdd9fe2dfcd51597bb81e1ee525ac3e3c7ace30751b6fd8c729589
         strip-components: 1
         dest: pio
         x-checker-data:
