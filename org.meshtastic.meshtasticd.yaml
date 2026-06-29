@@ -117,16 +117,34 @@ modules:
               stable-only: true
               url-template: https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-$version.tar.gz
       - name: libgpiod
-        buildsystem: autotools
+        buildsystem: meson
+        config-opts:
+          - -Dtests=disabled
+          - -Dexamples=disabled
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.2.5.tar.gz
-            sha256: 3a093cabe19bd5077f9f1bf31c8d4743cba3276718fca007f8eb6392a3bce575
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.3.tar.gz
+            sha256: 3f7deffb86a4d0add7e4e4b58f21d50d2473f40a37dffddecc09895c3842dccd
             x-checker-data:
               type: anitya
               project-id: 20640
               stable-only: true
               url-template: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-$version.tar.gz
+        modules:
+          - name: catch2
+            buildsystem: cmake-ninja
+            builddir: true
+            config-opts:
+              - -DCMAKE_BUILD_TYPE=Release
+            sources:
+              - type: archive
+                url: https://github.com/catchorg/Catch2/archive/refs/tags/v3.15.1.tar.gz
+                sha256: be23a52b85cf04cd9587612147a10b023d59ed9757fa1843cc99e615d6c0893c
+                x-checker-data:
+                  type: anitya
+                  project-id: 7680
+                  stable-only: true
+                  url-template: https://github.com/catchorg/Catch2/archive/refs/tags/v$version.tar.gz
       - name: i2c-tools
         buildsystem: simple
         build-commands:
