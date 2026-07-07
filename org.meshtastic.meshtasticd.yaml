@@ -47,7 +47,8 @@ modules:
       # Rewrite platformio-deps appstate version to match the current version
       - >
         tp=$(mktemp) && pio_version=$(platformio --version | awk '{print $NF}') &&
-        jq -c --arg v "$pio_version" '.last_version = $v' pio/core/appstate.json > "$tp" &&
+        jq -c --arg v "$pio_version" '.last_version = $v' pio/core/appstate.json >
+        "$tp" &&
         mv "$tp" pio/core/appstate.json &&
         echo "Set PlatformIO version to $pio_version in pio/core/appstate.json"
       # Build meshtasticd
@@ -124,8 +125,8 @@ modules:
           - -Dexamples=disabled
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.3.tar.gz
-            sha256: 3f7deffb86a4d0add7e4e4b58f21d50d2473f40a37dffddecc09895c3842dccd
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.3.1.tar.gz
+            sha256: 2e33d17f74cefadf85825f601829a68156f669348071be8470dcd700029a14af
             x-checker-data:
               type: anitya
               project-id: 20640
