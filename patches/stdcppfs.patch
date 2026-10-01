@@ -1,11 +1,11 @@
 diff --git a/variants/native/portduino.ini b/variants/native/portduino.ini
-index 9ab45d1ab..cb86a1a83 100644
+index c0e22f72a..63b502457 100644
 --- a/variants/native/portduino.ini
 +++ b/variants/native/portduino.ini
-@@ -62,7 +62,6 @@ build_flags =
-   -D_FORTIFY_SOURCE=2
-   -fstack-protector-all -Wstack-protector --param ssp-buffer-size=4
-   -DPORTDUINO_LINUX_HARDWARE
+@@ -79,7 +79,6 @@ build_flags =
+   ; mDNS discovery via Avahi (src/platform/portduino/NativeDiscovery.cpp); compiles out when absent.
+   !pkg-config --cflags --libs avahi-client --silence-errors || :
+   !pkg-config --exists avahi-client && echo -DMESHTASTIC_USE_AVAHI=1 || :
 -  -lstdc++fs
    -lbluetooth
    -lgpiod
