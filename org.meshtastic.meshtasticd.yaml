@@ -125,8 +125,8 @@ modules:
           - -Dexamples=disabled
         sources:
           - type: archive
-            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.3.1.tar.gz
-            sha256: 2e33d17f74cefadf85825f601829a68156f669348071be8470dcd700029a14af
+            url: https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/snapshot/libgpiod-2.3.2.tar.gz
+            sha256: ca9bf015b809bd2b368557fa6401527f4be139fa4b23028b4214bf364139cafd
             x-checker-data:
               type: anitya
               project-id: 20640
