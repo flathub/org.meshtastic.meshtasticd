@@ -261,4 +261,4 @@ modules:
               type: anitya
               project-id: 1780
               stable-only: true
-              url-template: https://xkbcommon.org/download/libxkbcommon-$version.tar.xz
+              url-template: https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-$version.tar.gz
