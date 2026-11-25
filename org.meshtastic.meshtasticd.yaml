@@ -255,8 +255,8 @@ modules:
           - /libexec
         sources:
           - type: archive
-            url: https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz
-            sha256: 65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247
+            url: https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.13.2.tar.gz
+            sha256: acc4d5f7c3cbba5f9f8d08d8bdbeede84ecede46792f47929aa9321873385528
             x-checker-data:
               type: anitya
               project-id: 1780
