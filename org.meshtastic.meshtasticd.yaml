@@ -1,6 +1,6 @@
 id: org.meshtastic.meshtasticd
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: meshtasticd-wrapper.sh
 
@@ -68,8 +68,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/meshtastic/firmware.git
-        tag: v2.7.26.54e0d8d
-        commit: 54e0d8d0ab2ff56b3a9ce967e53f79e49af560fb
+        tag: v2.8.2.d5f1619
+        commit: d5f16191ca28b01b5024f590f04a67f25d66f1b1
         x-checker-data:
           is-main-source: true
           type: json
@@ -81,8 +81,8 @@ modules:
         paths:
           - patches/stdcppfs.patch
       - type: archive
-        url: https://github.com/meshtastic/firmware/releases/download/v2.7.26.54e0d8d/platformio-deps-native-tft-2.7.26.54e0d8d.zip
-        sha256: 9ce0661d576e0297213890872399379e0faa7c4c1210d8e43ff16114f6860632
+        url: https://github.com/meshtastic/firmware/releases/download/v2.8.2.d5f1619/platformio-deps-native-tft-2.8.2.d5f1619.zip
+        sha256: 5a1bd45c5ee9ca845b68b0ef93bc603eccbff0dd729d55c5e8211ca66d37bd4c
         strip-components: 1
         dest: pio
         x-checker-data:
@@ -262,3 +262,17 @@ modules:
               project-id: 1780
               stable-only: true
               url-template: https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-$version.tar.gz
+      - name: jsoncpp
+        buildsystem: cmake-ninja
+        builddir: true
+        config-opts:
+          - -DJSONCPP_WITH_TESTS=OFF
+        sources:
+          - type: archive
+            url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8.tar.gz
+            sha256: 51828cf3574281d2b79ec2a1c56a9e4c20cc1103711321ea96384cffb8d2d904
+            x-checker-data:
+              type: anitya
+              project-id: 7483
+              stable-only: true
+              url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
